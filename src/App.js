@@ -33,6 +33,7 @@ const ChatAssistant = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify({
           message: inputMessage,
@@ -73,6 +74,9 @@ const ChatAssistant = () => {
     try {
       await fetch(`https://presoak-headgear-stout.ngrok-free.dev/chat/${sessionId}`, {
         method: 'DELETE',
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+        },
       });
       setMessages([]);
     } catch (error) {
